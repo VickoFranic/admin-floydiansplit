@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
+import { FacebookService } from 'ngx-facebook';
 
 import { AppComponent } from './app.component';
 import { PostsComponent } from './admin/posts/posts.component';
@@ -23,7 +24,11 @@ import { AdminComponent } from './admin/admin.component';
       appRoutes
     )
   ],
-  providers: [AuthGuard, AuthService],
+  providers: [
+    AuthGuard,
+    AuthService,
+    FacebookService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

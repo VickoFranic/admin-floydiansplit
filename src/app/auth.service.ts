@@ -1,14 +1,28 @@
 import { Injectable } from '@angular/core';
+import { FacebookService, InitParams } from 'ngx-facebook';
 
 @Injectable()
 export class AuthService {
+  fb: FacebookService;
 
-  user: object = null;
-  isLoggedIn: boolean = false;
+  constructor(fb: FacebookService) {
+    this.fb = fb;
 
-  constructor() { }
+    let initParams: InitParams = {
+      appId: '1648357935458763',
+      xfbml: true,
+      cookie: true,
+      version: 'v2.8'
+    };
+
+    this.fb.init(initParams);
+  }
 
   getUser() {
-    return this.user;
+    if (this.fb.getAuthResponse()) {
+      return this.fb.api('/me');
+    }
+    return null;
   }
+
 }

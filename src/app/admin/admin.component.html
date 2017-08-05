@@ -1,8 +1,13 @@
-<h1>ADMIN</h1>
+<h4>
+  <p class="text-right">
+    <small *ngIf="user">Hey <b>{{ user.name }}</b>, nice to see you again.</small>
+  </p>
+</h4>
 <hr>
 
 <nav>
-  <a routerLink="/admin/posts" routerLinkActive="active">POSTS</a>
+  <a routerLink="/admin/posts" routerLinkActive="active">POSTS</a> |
+  <a href="#" (click)="logout()">LOGOUT</a>
 </nav>
 
 <br>
