@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
 import { FacebookService, InitParams } from 'ngx-facebook';
+import { Config } from './config';
 
 @Injectable()
 export class AuthService {
-
   fb: FacebookService;
-  admins: Array<string> = [
-    '10211172940735895'
-  ]
 
   constructor(fb: FacebookService) {
     this.fb = fb;
 
     let initParams: InitParams = {
-      appId: '1648357935458763',
+      appId: Config.appId,
       xfbml: true,
       cookie: true,
       version: 'v2.8'
@@ -37,7 +34,7 @@ export class AuthService {
    * @param userId FB user ID
    */
   canAccessAdmin(userId) {
-    if (this.admins.indexOf(userId) > -1) {
+    if (Config.admins.indexOf(userId) > -1) {
       return true;
     }
     return false;
