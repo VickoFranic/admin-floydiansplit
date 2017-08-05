@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       .then((response) => {
         this.router.navigate(['admin']);
       })
-      .catch(e => console.error('Error logging in'));
+      .catch((e) => console.error(e));
   }
 
 }

@@ -20,7 +20,7 @@ export class AuthService {
 
   getUser() {
     if (this.fb.getAuthResponse()) {
-      return this.fb.api('/me');
+      return this.fb.api('/me?fields=name,picture');
     }
     return null;
   }

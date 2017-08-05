@@ -9,7 +9,8 @@ import { AuthService } from './../auth.service';
 })
 export class AdminComponent implements OnInit {
 
-  user: object = null;
+  user: object;
+  picture: string;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -17,6 +18,7 @@ export class AdminComponent implements OnInit {
     this.authService.getUser()
       .then((user) => {
         this.user = user;
+        this.picture = user.picture.data.url;
       })
       .catch((e) => console.log(e));
   }
