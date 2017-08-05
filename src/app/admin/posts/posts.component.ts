@@ -11,11 +11,11 @@ import { PostService } from './post.service';
 })
 export class PostsComponent implements OnInit {
 
-  title : string = "Posts";
   posts : Array<string>
 
   constructor(postService: PostService) { 
-    this.posts = postService.getPosts();
+    postService.getPosts()
+      .then((posts) => this.posts = posts);
   }
 
   ngOnInit() {

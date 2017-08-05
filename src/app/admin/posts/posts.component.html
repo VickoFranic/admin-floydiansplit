@@ -1,5 +1,5 @@
-<ul class="list-group">
-  <li class="list-group-item" *ngFor="let post of posts">
-    {{ post }}
+<ul *ngIf="posts" class="list-group post-item-ul">
+  <li class="list-group-item post-item-li" *ngFor="let post of posts">
+    <small>{{ post.message }}</small>
   </li>
 </ul>

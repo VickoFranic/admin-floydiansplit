@@ -1,18 +1,19 @@
 import { Injectable } from '@angular/core';
+import { FacebookService } from 'ngx-facebook';
+import { Graph } from './../graph.routes';
 
 @Injectable()
 export class PostService {
 
-  posts = [
-    "Ovo je post 1",
-    "Ovo je post 2",
-    "Ovo je post 3"
-  ]
+  posts: Array<any>;
 
-  constructor() { }
+  constructor(private fb: FacebookService) { }
 
   getPosts() {
-    return this.posts;
+    return this.fb.api(Graph.posts)
+            .then((response) => {
+              return response.data;
+            });
   }
 
 }
