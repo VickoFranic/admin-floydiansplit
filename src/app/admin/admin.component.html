@@ -1,16 +1,15 @@
 <h4>
   <p class="text-right">
     <img src="{{ picture }}" class="img img-responsive img-circle user-picture">
-    <small *ngIf="user">Hey <b>{{ user.name }}</b>, nice to see you again.</small>
+    <small *ngIf="user">Hey <b>{{ user.name }}</b>, jesi slušao Floyde zadnjih dana?</small>
   </p>
 </h4>
 <hr>
-<br>
-<nav>
-  <a routerLink="/admin/posts" routerLinkActive="active">POSTS</a> |
-  <a href="#" (click)="logout()">LOGOUT</a>
-</nav>
 
-<br>
+<nav>
+  <a routerLink="/admin/images" class="alert" routerLinkActive="active">SLIKE</a> |
+  <a routerLink="/admin/posts" class="alert" routerLinkActive="active">FB POSTOVI</a> |
+  <a href="#" (click)="logout()">ODJAVA</a>
+</nav>
 
 <router-outlet></router-outlet>
