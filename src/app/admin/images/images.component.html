@@ -1,0 +1,13 @@
+
+<h2 class="lead">Slike naslovnice</h2>
+<hr>
+
+<div *ngIf="images" class="row">
+  <div class="col-xs-4" *ngFor="let image of images">
+    <div class="card">
+      <img class="img img-responsive img-circle user-img" src="{{ image.owners[0].picture.url }}">
+
+      <img class="img img-responsive main-img" src="{{ image.thumbnailLink }}">
+    </div>
+  </div>
+</div>
