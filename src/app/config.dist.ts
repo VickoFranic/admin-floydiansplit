@@ -6,7 +6,7 @@
 export const Config = {
     appId: 'xxxxxxxxxxxxxxx',
     pageId: 'xxxxxxxxxxxxxxx',
-    googleDriveApiKey: 'xxxxxxxxxxxxx',
+    googleDriveRoot: 'xxxxxxxxxxxxx',
 
     // This is array of Facebook page admin ID's 
     admins: [

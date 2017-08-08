@@ -15,6 +15,8 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { ImagesComponent } from './admin/images/images.component';
 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +28,7 @@ import { ImagesComponent } from './admin/images/images.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    BsDropdownModule.forRoot(),
     RouterModule.forRoot(
       appRoutes
     )

@@ -20,4 +20,11 @@ export class ImagesComponent implements OnInit {
       });
   }
 
+  downloadImage(image) {
+    console.log(image);
+  }
+
+  deleteImageFromDrive(image) {
+    console.log(image);
+  }
 }

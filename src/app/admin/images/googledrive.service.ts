@@ -14,4 +14,5 @@ export class GoogledriveService {
   getImages() {
     return this.http.get<ImagesResponse>(Config.googleDriveRoot);
   }
+
 }

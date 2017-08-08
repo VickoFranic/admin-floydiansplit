@@ -3,10 +3,32 @@
 <hr>
 
 <div *ngIf="images" class="row">
-  <div class="col-xs-4" *ngFor="let image of images">
+  <div class="col-xs-6 col-sm-4" *ngFor="let image of images">
     <div class="card">
-      <img class="img img-responsive img-circle user-img" src="{{ image.owners[0].picture.url }}">
+      <div class="row">
+        <div class="col-xs-8">
+          <img class="img img-responsive img-circle user-img pull-left" src="{{ image.owners[0].picture.url }}">
+        </div>
+        <div class="col-xs-4">
 
+  <div class="btn-group" dropdown>
+    <button dropdownToggle type="button" class="btn btn-default pull-right card-menu">
+      <span class="glyphicon glyphicon-menu-hamburger"></span>
+    </button>
+
+    <ul *dropdownMenu class="dropdown-menu" role="menu">
+      <li role="menuitem">
+        <a class="dropdown-item" href="javascript:void(0)" (click)="downloadImage(image)">Download</a>
+      </li>
+      <li class="divider dropdown-divider"></li>
+      <li role="menuitem">
+        <a class="dropdown-item" href="javascript:void(0)" (click)="deleteImageFromDrive(image)">Izbriši</a>
+      </li>
+    </ul>
+</div>
+
+        </div>
+      </div>
       <img class="img img-responsive main-img" src="{{ image.thumbnailLink }}">
     </div>
   </div>

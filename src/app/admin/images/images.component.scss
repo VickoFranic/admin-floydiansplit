@@ -1,6 +1,8 @@
 
 /* Card styles */
 .user-img {
+    min-width: 20px;
+    min-height: 20px;
     width: 65px;
     height: 65px;
     padding: 10px;
@@ -12,5 +14,16 @@
 
     .main-img {
         width: 100%;
+    }
+}
+
+.card-menu {
+    margin-top: 12px;
+    margin-right: 12px;
+    border: none;
+    font-size: 1.4em;
+
+    &:focus {
+        outline: none!important;
     }
 }
