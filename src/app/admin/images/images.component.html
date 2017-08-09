@@ -2,6 +2,12 @@
 <h2 class="lead">Slike naslovnice</h2>
 <hr>
 
+<div *ngIf="images.length == 0">
+  <p class="lead">
+    <span class="glyphicon glyphicon-alert"></span> &nbsp; Nema slika !
+  </p>
+</div>
+
 <div *ngIf="images" class="row">
   <div class="col-xs-6 col-sm-4" *ngFor="let image of images">
     <div class="card">
@@ -22,7 +28,7 @@
       </li>
       <li class="divider dropdown-divider"></li>
       <li role="menuitem">
-        <a class="dropdown-item" href="javascript:void(0)" (click)="deleteImageFromDrive(image)">Izbriši</a>
+        <a class="dropdown-item" href="javascript:void(0)" (click)="deleteImage(image)">Izbriši</a>
       </li>
     </ul>
 </div>
