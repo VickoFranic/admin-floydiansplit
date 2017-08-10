@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { GoogledriveService } from './googledrive.service';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
+import { ConfirmImageDeleteModalComponent } from './confirm-image-delete-modal/confirm-image-delete-modal.component';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-images',
@@ -10,9 +12,10 @@ import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 })
 export class ImagesComponent implements OnInit {
 
+  modalRef: BsModalRef;
   images: Array<any> = [];
   imagesList;
-  bsModalRef: BsModalRef;
+  public subscriptions: Subscription[] = [];
 
   constructor(private googledriveService: GoogledriveService, private modalService: BsModalService) { }
 
@@ -50,19 +53,34 @@ export class ImagesComponent implements OnInit {
    * @param image
    */
   deleteImage(image) {
-    this.googledriveService.deleteImage(image)
-      .subscribe(newList => {
-        this.imagesList = newList;
 
-        this.images = [];
-        this.imagesList.forEach(image => {
-          this.images.forEach(item => {
-            if ((item.id == image.id)) {
-              this.images.push(item);
-            }
+    this.subscriptions.push(this.modalService.onHide.subscribe(() => {
+      if(this.modalRef.content.deleteImage == true) {
+        this.googledriveService.deleteImage(image)
+          .subscribe(newList => {
+            this.imagesList = newList;
+
+            this.images = [];
+            this.imagesList.forEach(image => {
+              this.images.forEach(item => {
+                if ((item.id == image.id)) {
+                  this.images.push(item);
+                }
+              });
+            });
           });
-        });
-      });
+      }
+      this.unsubscribe();
+    }));
+
+    this.modalRef = this.modalService.show(ConfirmImageDeleteModalComponent);
+  }
+
+  public unsubscribe() {
+    this.subscriptions.forEach((subscription: Subscription) => {
+      subscription.unsubscribe();
+    });
+    this.subscriptions = [];
   }
 
 }

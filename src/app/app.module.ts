@@ -14,6 +14,7 @@ import { PostsComponent } from './admin/posts/posts.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { ImagesComponent } from './admin/images/images.component';
+import { ConfirmImageDeleteModalComponent } from './admin/images/confirm-image-delete-modal/confirm-image-delete-modal.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
@@ -24,7 +25,11 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     PostsComponent,
     LoginComponent,
     AdminComponent,
-    ImagesComponent
+    ImagesComponent,
+    ConfirmImageDeleteModalComponent
+  ],
+  entryComponents: [
+    ConfirmImageDeleteModalComponent
   ],
   imports: [
     BrowserModule,

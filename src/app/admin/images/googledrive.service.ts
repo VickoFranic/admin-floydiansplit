@@ -20,7 +20,7 @@ export class GoogledriveService {
    * Get main images from Google Drive
    */
   getImages() {
-    return this.http.get<ImagesResponse>(Config.googleDriveRoot);
+    return this.http.get<ImagesResponse>(Config.googleDriveMainImagesFolder);
   }
 
   /**

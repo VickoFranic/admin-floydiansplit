@@ -1,0 +1,17 @@
+<div class="modal-header">
+  <button type="button" class="close" aria-label="Close" (click)="dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <h4 class="modal-title">Jesi li siguran ?</h4>
+</div>
+<div class="modal-body">
+  Sigurno želiš izbrisati ovu sliju sa web stranice Floydiana ?
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" type="button" (click)="dismiss()">
+    Odustani
+  </button>
+  <button class="btn btn-primary" type="button" (click)="delete()">
+    Izbriši
+  </button>
+</div>

@@ -2,12 +2,6 @@
 <h2 class="lead">Slike naslovnice</h2>
 <hr>
 
-<div *ngIf="images.length == 0">
-  <p class="lead">
-    <span class="glyphicon glyphicon-alert"></span> &nbsp; Nema slika !
-  </p>
-</div>
-
 <div *ngIf="images" class="row">
   <div class="col-xs-6 col-sm-4" *ngFor="let image of images">
     <div class="card">
