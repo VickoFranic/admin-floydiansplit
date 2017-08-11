@@ -12,9 +12,12 @@ export class AuthGuard implements CanActivate {
     return this.authService.fb.getLoginStatus()
       .then((response) => {
         if (response.status == 'connected') {
-          if (this.authService.canAccessAdmin(response.authResponse.userID)) {
-            return true;
-          }
+          return this.authService.getUserAccounts()
+            .then((accounts) => {
+              if (this.authService.canAccessAdmin(accounts)) {
+                return true;
+              }
+            });
         }
         this.router.navigate(['login']);
         return false;

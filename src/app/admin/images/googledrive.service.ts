@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Config } from './../../config';
+import { environment } from './../../../environments/environment';
 
 interface ImagesResponse {
   items: any[]
@@ -27,7 +28,7 @@ export class GoogledriveService {
    * Get main images deleted/not deleted list from API
    */
   getImagesListFromApi() {
-    return this.http.get<Array<ImagesListItemResponse>>(Config.apiUrl + 'images/main');
+    return this.http.get<Array<ImagesListItemResponse>>(environment.apiUrl + 'images/main');
   }
 
   /**

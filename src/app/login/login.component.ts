@@ -21,7 +21,12 @@ export class LoginComponent implements OnInit {
 
     this.authService.fb.login()
       .then((response) => {
-        this.router.navigate(['admin']);
+        return this.authService.getUserAccounts();
+      })
+      .then((accounts) => {
+        if (this.authService.canAccessAdmin(accounts)) {
+          return this.router.navigate(['admin']);
+        }
       })
       .catch((e) => console.error(e));
   }
