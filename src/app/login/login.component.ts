@@ -19,7 +19,11 @@ export class LoginComponent implements OnInit {
    */
   loginWithFacebook() {
 
-    this.authService.fb.login()
+    const options = {
+      scope: 'public_profile, manage_pages'
+    }
+
+    this.authService.fb.login(options)
       .then((response) => {
         return this.authService.getUserAccounts();
       })

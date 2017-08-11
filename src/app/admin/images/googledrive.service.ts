@@ -35,6 +35,6 @@ export class GoogledriveService {
    * Delete image
    */
   deleteImage(image) {
-    return this.http.delete(Config.apiUrl + 'images/main/' + image.id);
+    return this.http.delete(environment.apiUrl + 'images/main/' + image.id);
   }
 }

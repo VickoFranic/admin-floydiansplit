@@ -14,7 +14,7 @@ export class AuthService {
       appId: environment.appId,
       xfbml: true,
       cookie: true,
-      version: 'v2.8'
+      version: 'v2.10'
     };
 
     this.fb.init(initParams);
