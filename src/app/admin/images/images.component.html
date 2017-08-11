@@ -2,6 +2,14 @@
 <h2 class="lead">Slike naslovnice</h2>
 <hr>
 
+<div class="row">
+  <div class="col-xs-12">
+    <button type="button" class="btn btn-primary" (click)="addNewImage()">
+      <span class="glyphicon glyphicon-plus"></span>&nbsp; Dodaj novu</button>
+  </div>
+</div>
+<br>
+
 <div *ngIf="images" class="row">
   <div class="col-xs-6 col-sm-4" *ngFor="let image of images">
     <div class="card">
