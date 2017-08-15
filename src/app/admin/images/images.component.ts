@@ -17,10 +17,13 @@ export class ImagesComponent implements OnInit {
   images: Array<any> = [];
   imagesList;
   public subscriptions: Subscription[] = [];
+  public showSpinner = false;
 
   constructor(private googledriveService: GoogledriveService, private modalService: BsModalService) { }
 
   ngOnInit() {
+
+    this.showSpinner = true;
 
     this.googledriveService.getImagesListFromApi()
       .subscribe(list => {
@@ -37,6 +40,7 @@ export class ImagesComponent implements OnInit {
                 }
               });
             });
+            this.showSpinner = false;
           });
       });
   }
