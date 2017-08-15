@@ -4,6 +4,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/modal-options.class';
 import { ConfirmImageDeleteModalComponent } from './confirm-image-delete-modal/confirm-image-delete-modal.component';
 import { Subscription } from 'rxjs/Subscription';
+import { Config } from './../../config';
 
 @Component({
   selector: 'app-images',
@@ -81,6 +82,10 @@ export class ImagesComponent implements OnInit {
       subscription.unsubscribe();
     });
     this.subscriptions = [];
+  }
+
+  addNewImage() {
+    document.location.href = Config.googleOauth2Url;
   }
 
 }

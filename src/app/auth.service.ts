@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FacebookService, InitParams } from 'ngx-facebook';
 import { Config } from './config';
+import { environment } from './../environments/environment';
 
 @Injectable()
 export class AuthService {
@@ -10,10 +11,10 @@ export class AuthService {
     this.fb = fb;
 
     let initParams: InitParams = {
-      appId: Config.appId,
+      appId: environment.appId,
       xfbml: true,
       cookie: true,
-      version: 'v2.8'
+      version: 'v2.10'
     };
 
     this.fb.init(initParams);
@@ -30,13 +31,33 @@ export class AuthService {
   }
 
   /**
-   * Check if user is one of Floydian admins
-   * @param userId FB user ID
+   * Get user pages on Facebook
    */
-  canAccessAdmin(userId) {
-    if (Config.admins.indexOf(userId) > -1) {
+  getUserAccounts() {
+    if (this.fb.getAuthResponse()) {
+      return this.fb.api('/me/accounts?fields=name');
+    }
+    return null;
+  }
+
+  /**
+   * Check if user is one of Floydian admins
+   * @param accounts | Facebook accounts for user
+   */
+  canAccessAdmin(accounts) {
+
+    let canAccess = false;
+    let pages = accounts.data;
+    let ids: Array<string> = [];
+
+    pages.forEach(page => {
+      ids.push(page.id);
+    });
+    
+    if (ids.indexOf(Config.pageId) > -1) {
       return true;
     }
+
     return false;
   }
 

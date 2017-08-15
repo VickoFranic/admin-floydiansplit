@@ -2,6 +2,14 @@
 <h2 class="lead">Slike naslovnice</h2>
 <hr>
 
+<div class="row">
+  <div class="col-xs-12">
+    <button type="button" class="btn btn-primary" (click)="addNewImage()">
+      <span class="glyphicon glyphicon-plus"></span>&nbsp; Dodaj novu</button>
+  </div>
+</div>
+<br>
+
 <div *ngIf="images" class="row">
   <div class="col-xs-6 col-sm-4" *ngFor="let image of images">
     <div class="card">
@@ -9,23 +17,23 @@
         <div class="col-xs-8">
           <img class="img img-responsive img-circle user-img pull-left" src="{{ image.owners[0].picture.url }}">
         </div>
-        <div class="col-xs-4">
+        <div class="col-xs-4 text-right">
 
-  <div class="btn-group" dropdown>
-    <button dropdownToggle type="button" class="btn btn-default pull-right card-menu">
-      <span class="glyphicon glyphicon-menu-hamburger"></span>
-    </button>
+          <div class="btn-group" dropdown>
+            <button dropdownToggle type="button" class="btn btn-default pull-right card-menu">
+              <span class="glyphicon glyphicon-menu-hamburger"></span>
+            </button>
 
-    <ul *dropdownMenu class="dropdown-menu" role="menu">
-      <li role="menuitem">
-        <a class="dropdown-item" href="javascript:void(0)" (click)="downloadImage(image)">Download</a>
-      </li>
-      <li class="divider dropdown-divider"></li>
-      <li role="menuitem">
-        <a class="dropdown-item" href="javascript:void(0)" (click)="deleteImage(image)">Izbriši</a>
-      </li>
-    </ul>
-</div>
+            <ul *dropdownMenu class="dropdown-menu" role="menu">
+              <li role="menuitem">
+                <a class="dropdown-item" href="javascript:void(0)" (click)="downloadImage(image)">Download</a>
+              </li>
+              <li class="divider dropdown-divider"></li>
+              <li role="menuitem">
+                <a class="dropdown-item" href="javascript:void(0)" (click)="deleteImage(image)">Izbriši</a>
+              </li>
+            </ul>
+        </div>
 
         </div>
       </div>

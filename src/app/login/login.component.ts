@@ -19,9 +19,18 @@ export class LoginComponent implements OnInit {
    */
   loginWithFacebook() {
 
-    this.authService.fb.login()
+    const options = {
+      scope: 'public_profile, manage_pages'
+    }
+
+    this.authService.fb.login(options)
       .then((response) => {
-        this.router.navigate(['admin']);
+        return this.authService.getUserAccounts();
+      })
+      .then((accounts) => {
+        if (this.authService.canAccessAdmin(accounts)) {
+          return this.router.navigate(['admin']);
+        }
       })
       .catch((e) => console.error(e));
   }
