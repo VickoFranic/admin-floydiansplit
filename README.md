@@ -1,5 +1,6 @@
-# Admin.FloydianSplit
+# Admin - Floydian Split
 
 Creating admin interface for my band's website, with Angular 2.
 
-http://floydiansplit.com
+Web: http://floydiansplit.com
+Admin: http://admin.floydiansplit.com
