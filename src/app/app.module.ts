@@ -18,6 +18,7 @@ import { ConfirmImageDeleteModalComponent } from './admin/images/confirm-image-d
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { SpinnerComponent } from './spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     LoginComponent,
     AdminComponent,
     ImagesComponent,
-    ConfirmImageDeleteModalComponent
+    ConfirmImageDeleteModalComponent,
+    SpinnerComponent
   ],
   entryComponents: [
     ConfirmImageDeleteModalComponent
